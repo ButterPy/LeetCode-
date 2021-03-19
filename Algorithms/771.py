@@ -5,10 +5,12 @@ class Solution(object):
         :type stones: str
         :rtype: int
         """
-        # Output: 3     Input: jewels = "aA", stones = "aAAbbbb"
+        d = dict()
 
-        count = 0
+        for i in jewels:
+            d[i] = 0
+
         for i in stones:
-            if i in jewels:
-                count += 1
-        return count
+            if d.get(i) is not None:
+                d[i] += 1
+        return sum(d.values())
