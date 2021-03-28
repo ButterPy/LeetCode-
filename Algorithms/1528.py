@@ -5,16 +5,10 @@ class Solution(object):
         :type indices: List[int]
         :rtype: str
         """
-        d = dict()
-        count = 0
-        out = []
 
-        for i in indices:
-            d[i] = s[count]
-            count += 1
+        mas = [0] * len(s)
 
-        indices.sort()
+        for id, i in enumerate(indices):
+            mas[i] = s[id]
 
-        for i in indices:
-            out.append(d.get(i))
-        return ''.join(out)
+        return "".join(mas)
