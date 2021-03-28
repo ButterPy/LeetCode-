@@ -15,7 +15,6 @@ class Solution(object):
         count = 0
 
         for i in items:
-            if ruleValue in i:
-                if i[key[ruleKey]] == ruleValue:
-                    count += 1
+            if i[key[ruleKey]] == ruleValue:
+                count += 1
         return count
