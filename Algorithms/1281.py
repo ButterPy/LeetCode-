@@ -1,14 +1,9 @@
-class Solution(object):
-    def subtractProductAndSum(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        n = str(n)
-        mas = list(map(int, n))
-        mult = 1
+class Solution:
+    def subtractProductAndSum(self, n: int) -> int:
+        from functools import reduce
 
-        for i in mas:
-            mult *= i
+        arr = list(map(int, str(n)))
+        mult = reduce(lambda a, b: a + b, arr)
+        result = reduce(lambda a, b: a * b, arr) - mult
 
-        return mult - sum(mas)
+        return result

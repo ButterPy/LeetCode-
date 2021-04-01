@@ -1,19 +1,10 @@
-class Solution(object):
-    def decompressRLElist(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def decompressRLElist(self, nums: List[int]) -> List[int]:
         out = []
+        i = 0
 
-        for i in range(len(nums) - 1):
-            if i * 2 + 1 <= len(nums) - 1:
-                freq = nums[i * 2]
-                val = nums[i * 2 + 1]
-                while freq:
-                    out.append(val)
-                    freq -= 1
-            else:
-                break
-
+        while i < len(nums):
+            for j in range(nums[i]):
+                out.append(nums[i + 1])
+            i += 2
         return out
