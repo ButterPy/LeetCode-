@@ -1,9 +1,11 @@
 class Solution:
     def subtractProductAndSum(self, n: int) -> int:
         from functools import reduce
+        arr = []
 
-        arr = list(map(int, str(n)))
-        mult = reduce(lambda a, b: a + b, arr)
-        result = reduce(lambda a, b: a * b, arr) - mult
+        while n:
+            arr.append(n % 10)
+            n //= 10
 
-        return result
+        out = reduce(lambda x, y: x * y, arr) - sum(arr)
+        return out
