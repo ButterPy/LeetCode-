@@ -6,6 +6,5 @@ class Solution:
         while n:
             arr.append(n % 10)
             n //= 10
-
         out = reduce(lambda x, y: x * y, arr) - sum(arr)
         return out
